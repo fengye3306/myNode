@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>笔记</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+
+
+<body>
+  <div id="app">
+    Locding...
+  </div>
+  <nav id="saveLife">
+  </nav>
+
+  <script>
+    window.$docsify = {//全局设置
+      name: '',
+      repo: '',
+      coverpage: true,   //开启封面
+      loadSidebar: true, //开启全局侧边栏
+      // alias: {           //避免不必要的回退
+      //   '/.*/_sidebar.md': '/_sidebar.md'
+      // },
+      subMaxLevel: 4, //侧边栏开启目录 - 数字似乎是目录深度 最高接受几级
+      onlyCover: true,//分离首页和详情页
+      homepage: 'DME.md',// 入口文件改为 /home.md 原为README.md
+      relativePath: true,//启用相对路径
+      /*举个例子
+        我在Utopia配置_sidebar,md
+        本来按照绝对路径我要写/Utopia/chapterOne.md才可以读取第一章
+        现在启用了相对路径 就能这么写 --  ./chapterOne.md
+      */
+      //logo: '/public/img/144.jpg',//侧边栏出现网站图标，自己用css修改大小
+      name: 'READ',
+      executeScript: true,//执行文档的第一个srcipt脚本
+      mergeNavbar: true,//小屏设备下合并导航栏到侧边栏。
+      topMargin: 90, // default: 0让你的内容页在滚动到指定的锚点时，距离页面顶部有一定空间
+
+      //搜索功能设置全文搜索功能
+      search: 'auto', // 默认值
+      search: [
+        '/',            // => /README.md
+        '/guide',       // => /guide.md
+        '/get-started', // => /get-started.md
+        '/zh-cn/',      // => /zh-cn/README.md
+      ],
+
+      search: {//搜索功能完整配置参数
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto', // or 'auto'
+        placeholder: 'Type to search',
+
+        // 支持本地化
+        placeholder: {
+          '/Utopia/': '真理不在这里',//在不用目录下有不同的文字
+          '/': 'Type to search'
+        },
+
+        noData: 'No Results!',
+
+        // 支持本地化
+        noData: {
+          '/Utopia/': '也许我还没记录这些...',//在不用目录下有不同的文字
+          '/': 'No Results'
+        },
+
+        // 搜索标题的最大层级, 1 - 6
+        depth: 6,
+
+        hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
+
+        // 避免搜索索引冲突
+        // 同一域下的多个网站之间
+        namespace: 'website-1',
+
+        // 使用不同的索引作为路径前缀（namespaces）
+        // 注意：仅适用于 paths: 'auto' 模式
+        //
+        // 初始化索引时，我们从侧边栏查找第一个路径
+        // 如果它与列表中的前缀匹配，我们将切换到相应的索引
+        pathNamespaces: ['/Utopia', '/ru-ru', '/ru-ru/v1'],
+
+        // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
+        // 匹配到的字符串将被用来识别索引
+        pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/
+      },
+
+      count: {//字数统计
+        countable: true,
+        fontsize: '1.1em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      }
+
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- 搜索栏 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+</body>
+
+</html>
